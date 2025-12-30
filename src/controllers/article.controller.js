@@ -1,9 +1,10 @@
 import {Article}  from "../models/article.model.js";
 import {scrapeOldArticles} from "../services/scarper.service.js"
 
+console.log("3")
 const createArticle = async (req, res) => {
   try {
-    console.log("Hello World")
+    
     const article = await Article.create(req.body); // save the article in the database 
     res.status(201).json(article);
   } catch (error) {

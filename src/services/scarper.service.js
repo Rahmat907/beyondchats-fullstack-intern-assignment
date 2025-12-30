@@ -24,7 +24,9 @@ const scrapeOldArticles = async () => {
       });
     });
 
+      //  console.log(articles[0]);\
+      // console.log(articles)
   return articles;
 };
-
+ scrapeOldArticles()
 export {scrapeOldArticles}

@@ -1,5 +1,7 @@
 import mongoose,{Schema} from "mongoose";
 
+console.log("4");
+
 const articlesSchema = new Schema({
 tittle : String,
 slug : String,
