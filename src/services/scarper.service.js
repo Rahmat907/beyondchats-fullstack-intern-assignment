@@ -6,27 +6,33 @@ const LAST_PAGE_URL = "https://beyondchats.com/blogs?page=15";
 const scrapeOldArticles = async () => {
   const { data } = await axios.get(LAST_PAGE_URL);
   const $ = cheerio.load(data);
-
+  // console.log($);
   const articles = [];
-
+  // console.log(data.slice(0, 5000));
   // last page ke last 5 articles
-  $(".blog-card")
-    .slice(-5)
-    .each((_, el) => {
-      const title = $(el).find("h3").text().trim();
-      const url = $(el).find("a").attr("href");
+ $("article").each((_, el) => {
+    const heading = $(el).find("h1, h2, h3").first();
+    const title = heading.text().trim();
 
+    const link =
+      heading.find("a").attr("href") ||
+      $(el).find("a").first().attr("href");
+
+    if (title && link) {
       articles.push({
         title,
-        url: url.startsWith("http")
-          ? url
-          : `https://beyondchats.com${url}`,
+        url: link.startsWith("http")
+          ? link
+          : `https://beyondchats.com${link}`,
       });
-    });
+    }
+  });
 
-      //  console.log(articles[0]);\
-      // console.log(articles)
-  return articles;
+    const articles_five = articles.slice(-5);
+    for(let x of articles_five){
+        console.log(x)
+      }
+  return articles_five;
 };
- scrapeOldArticles()
+//  scrapeOldArticles()
 export {scrapeOldArticles}

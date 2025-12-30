@@ -1,7 +1,6 @@
 import {Article}  from "../models/article.model.js";
 import {scrapeOldArticles} from "../services/scarper.service.js"
 
-console.log("3")
 const createArticle = async (req, res) => {
   try {
     
@@ -70,7 +69,6 @@ const deleteArticle = async (req, res) => {
 const scrapeAndSaveArticles = async (req, res) => {
   try {
     const scrapedArticles = await scrapeOldArticles();
-
     const savedArticles = [];
 
     for (const article of scrapedArticles) {
@@ -84,12 +82,10 @@ const scrapeAndSaveArticles = async (req, res) => {
 
     res.status(201).json({
       message: "Articles scraped and saved",
-      count: savedArticles.length,
       data: savedArticles,
     });
     } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: "server failed" });
   }
 };
-
 export {createArticle,getAllArticles,getArticleById,updateArticle,deleteArticle,scrapeAndSaveArticles}

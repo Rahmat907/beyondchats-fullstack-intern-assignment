@@ -3,7 +3,6 @@ dotenv.config();
 import app from "./app.js";
 import connectDB from "./config/db.js";
 
-console.log("0");
 
 connectDB().then(()=>{
 app.listen(process.env.PORT || 7000,(req,res)=>{

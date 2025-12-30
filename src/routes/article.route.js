@@ -1,7 +1,6 @@
 import express from "express"
 import {createArticle,getAllArticles,getArticleById,updateArticle,deleteArticle,scrapeAndSaveArticles} from "../controllers/article.controller.js"
 
-console.log("2");
 
 const router= express.Router();
 
