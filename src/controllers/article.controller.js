@@ -1,9 +1,9 @@
-import Article  from "../models/articel.model.js";
+import {Article}  from "../models/article.model.js";
 import {scrapeOldArticles} from "../services/scarper.service.js"
 
 const createArticle = async (req, res) => {
   try {
-    // console.log("Hello World")
+    console.log("Hello World")
     const article = await Article.create(req.body); // save the article in the database 
     res.status(201).json(article);
   } catch (error) {
@@ -28,7 +28,7 @@ const getArticleById = async (req, res) => {
       return res.status(404).json({ message: "Article not found" });
     }
 
-    res.status(201).json(article);
+    res.status(200).json(article);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -76,7 +76,7 @@ const scrapeAndSaveArticles = async (req, res) => {
       const exists = await Article.findOne({ url: article.url });
 
       if (!exists) {
-        const saved = await Article.create(article); // ✅ SAVE HERE
+        const saved = await Article.create(article); // SAVE HERE
         savedArticles.push(saved);
       }
     }
