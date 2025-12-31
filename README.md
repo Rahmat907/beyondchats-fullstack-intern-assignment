@@ -88,7 +88,7 @@ npm run dev
 
 The server will start at:
 
-http://localhost:5000
+http://localhost:7000
 
 🔌 API Endpoints (Phase 1)
 Create Article
