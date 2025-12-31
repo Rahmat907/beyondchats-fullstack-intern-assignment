@@ -3,8 +3,6 @@ import mongoose,{Schema} from "mongoose";
 
 const articlesSchema = new Schema({
 title : String,
-slug : String,
-content : String,
 url : String,
 publishedAt : String,
 isUpdated :{

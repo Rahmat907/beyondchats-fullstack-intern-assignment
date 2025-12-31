@@ -34,5 +34,4 @@ const scrapeOldArticles = async () => {
       }
   return articles_five;
 };
-//  scrapeOldArticles()
 export {scrapeOldArticles}
