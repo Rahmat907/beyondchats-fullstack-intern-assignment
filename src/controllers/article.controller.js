@@ -4,7 +4,13 @@ import {scrapeOldArticles} from "../services/scarper.service.js"
 const createArticle = async (req, res) => {
   try {
     
-    const article = await Article.create(req.body); // save the article in the database 
+    const article = req.body; 
+    if(!article){
+      res.status(404).json({
+        message : "article not found"
+      })
+      const article = await Article.create(req.body); // save the article in the database
+    } 
     res.status(201).json(article);
   } catch (error) {
     res.status(500).json({ message: error.message });
