@@ -6,10 +6,7 @@ const LAST_PAGE_URL = "https://beyondchats.com/blogs?page=15";
 const scrapeOldArticles = async () => {
   const { data } = await axios.get(LAST_PAGE_URL);
   const $ = cheerio.load(data);
-  // console.log($);
   const articles = [];
-  // console.log(data.slice(0, 5000));
-  // last page ke last 5 articles
  $("article").each((_, el) => {
     const heading = $(el).find("h1, h2, h3").first();
     const title = heading.text().trim();
