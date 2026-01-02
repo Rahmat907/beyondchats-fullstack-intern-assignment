@@ -5,7 +5,7 @@ const articlesSchema = new Schema({
 title : String,
 content : String,
 url : String,
-publishedAt : String,
+updateContent : String,
 isUpdated :{
     type : Boolean,
     default : false,

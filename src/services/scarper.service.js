@@ -18,6 +18,7 @@ const scrapeOldArticles = async () => {
     if (title && link) {
       articles.push({
         title,
+        content : "",
         url: link.startsWith("http")
           ? link
           : `https://beyondchats.com${link}`,
